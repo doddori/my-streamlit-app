@@ -416,7 +416,7 @@ with purchase_tab:
         order_items = st.session_state['order_items']
 
     if 'products' not in st.session_state:
-        products = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
+        products = pd.read_csv('https://www.dropbox.com/scl/fi/nkg8tz7dn9hsmwav2vi1t/products_preprocessed.csv?rlkey=ajz1rclosfymrfw8ghmllo8vm&st=t4ccuq7k&dl=1')
         st.session_state['products'] = products
     else:
         products = st.session_state['products']
@@ -536,7 +536,7 @@ with product_tab:
         order_items = st.session_state['order_items']
 
     if 'products' not in st.session_state:
-        products = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
+        products = pd.read_csv('https://www.dropbox.com/scl/fi/nkg8tz7dn9hsmwav2vi1t/products_preprocessed.csv?rlkey=ajz1rclosfymrfw8ghmllo8vm&st=t4ccuq7k&dl=1')
         st.session_state['products'] = products
     else:
         products = st.session_state['products']
