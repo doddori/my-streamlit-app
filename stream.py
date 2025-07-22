@@ -15,9 +15,9 @@ col_left, col_right = st.columns([8, 3])
 with col_left:
     st.title("통합 데이터 분석 대시보드")
     # 데이터 로드 (가장 먼저!)
-    users = pd.read_csv('users_preprocessed.csv', parse_dates=['created_at'])
+    users = pd.read_csv('https://www.dropbox.com/scl/fi/egugh9elauchrffiwyn1h/users_preprocessed.csv?rlkey=7knpt37y7z0f5qbm9rm416n5a&st=wfak300j&dl=1', parse_dates=['created_at'])
 
-events = pd.read_csv('events_preprocessed.csv', parse_dates=['created_at'])
+events = pd.read_csv('https://www.dropbox.com/scl/fi/l9bi2dfvlug1j8fy6biuo/events_preprocessed.csv?rlkey=0gxb54oymo1r7gme298jy98wv&st=gq7geawk&dl=1', parse_dates=['created_at'])
 
 # 전체 데이터 사용
 filtered_users = users.copy()
@@ -381,7 +381,7 @@ with purchase_tab:
     # 3행: 1회/2회/3회 이상 구매자 비율 (아래 줄)
     # 실제 데이터로 집계
     if 'order_items' not in st.session_state:
-        order_items = pd.read_csv('order_items_preprocessed.csv')
+        order_items = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
         st.session_state['order_items'] = order_items
     else:
         order_items = st.session_state['order_items']
@@ -410,13 +410,13 @@ with purchase_tab:
     # 반복구매자 프로파일링: 구매주기 짧은 유저 vs 긴 유저 비교
     st.subheader("반복구매자 프로파일링: 구매주기 짧은 유저 vs 긴 유저")
     if 'order_items' not in st.session_state:
-        order_items = pd.read_csv('order_items_preprocessed.csv')
+        order_items = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
         st.session_state['order_items'] = order_items
     else:
         order_items = st.session_state['order_items']
 
     if 'products' not in st.session_state:
-        products = pd.read_csv('products_preprocessed.csv')
+        products = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
         st.session_state['products'] = products
     else:
         products = st.session_state['products']
@@ -530,13 +530,13 @@ with product_tab:
     st.header("제품 분석")
     # 데이터 로드 및 타입 맞추기
     if 'order_items' not in st.session_state:
-        order_items = pd.read_csv('order_items_preprocessed.csv')
+        order_items = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
         st.session_state['order_items'] = order_items
     else:
         order_items = st.session_state['order_items']
 
     if 'products' not in st.session_state:
-        products = pd.read_csv('products_preprocessed.csv')
+        products = pd.read_csv('https://www.dropbox.com/scl/fi/1wus8qtn8ig32ee27nupq/order_items_preprocessed.csv?rlkey=l4a5ilw64qcpx8ukhcu79aeex&st=lux24bfy&dl=1')
         st.session_state['products'] = products
     else:
         products = st.session_state['products']
@@ -705,7 +705,7 @@ with region_tab:
         st.plotly_chart(fig_traffic_pie, use_container_width=True)
 
     # 시간대별 이벤트 발생 추이 (라인 차트)
-    events = pd.read_csv('events_preprocessed.csv', parse_dates=['created_at'])
+    events = pd.read_csv('https://www.dropbox.com/scl/fi/l9bi2dfvlug1j8fy6biuo/events_preprocessed.csv?rlkey=0gxb54oymo1r7gme298jy98wv&st=gq7geawk&dl=1', parse_dates=['created_at'])
     events = events[events['user_id'].notnull()]
     events['hour'] = pd.to_datetime(events['created_at']).dt.hour
     hourly_counts = events.groupby(['hour', 'event_type']).size().unstack(fill_value=0)
