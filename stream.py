@@ -735,4 +735,3 @@ with region_tab:
         height=350
     )
     st.plotly_chart(fig_event_bar, use_container_width=True)
-    st.write("products columns:", products.columns.tolist())
